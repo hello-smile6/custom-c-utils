@@ -11,6 +11,8 @@
     pkgs.gcc-unwrapped.man
     # Give us a better build env
     pkgs.gccMultiStdenv
+    pkgs.tinycc
+
     
   ];
   nativeBuildInputs=[

@@ -1,3 +1,4 @@
 out/*
 test/test-fifo
 test/out/*
+*/out/*
