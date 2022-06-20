@@ -19,12 +19,12 @@ clean: | out
 
 mkfifo: out/mkfifo
 
-out/mkfifo: mkfifo.c common.h | out
+out/mkfifo: mkfifo.c common.h sysexits-polyfill.h | out
 	gcc $(CFLAGS) mkfifo.c -o out/mkfifo
 
 kill: out/kill
 
-out/kill: kill.c common.h signal-wrapper.h | out
+out/kill: kill.c common.h signal-wrapper.h sysexits-polyfill.h | out
 	gcc $(CFLAGS) kill.c -o out/kill
 
 tests: | test test/out/$(tests)
@@ -39,3 +39,5 @@ test:
 test/out/mkfifo: test/mkfifo.c out/mkfifo | test/out
 	gcc $(CFLAGS) test/mkfifo.c -o test/out/mkfifo
 	test/out/mkfifo
+
+sysexits-polyfill.h: sysexits-win32.h

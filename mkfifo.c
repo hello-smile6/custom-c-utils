@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <sysexits.h>
+#include "sysexits-polyfill.h"
 #include <stdlib.h>
 #include <sys/stat.h>
 #include "common.h"
