@@ -1,7 +1,7 @@
-utils = yes mkfifo kill
+utils = yes mkfifo kill nohup
 CFLAGS = -Wall -ansi -g3 -Werror=int-conversion -Og -Werror=all
 tests = mkfifo
-.PHONY: all yes clean mkfifo kill tests test/mkfifo
+.PHONY: all yes clean mkfifo kill tests test/mkfifo nohup
 all: $(utils) tests
 
 yes: out/yes
@@ -41,3 +41,8 @@ test/out/mkfifo: test/mkfifo.c out/mkfifo | test/out
 	test/out/mkfifo
 
 sysexits-polyfill.h: sysexits-win32.h
+
+out/nohup: nohup.c | out
+	gcc $(CFLAGS) nohup.c -o out/nohup
+
+nohup: out/nohup
