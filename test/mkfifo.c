@@ -39,6 +39,7 @@ int fifoStat=stat("test/test-fifo", &buffer);
 }
 #endif
 #ifdef __MINGW32__
+
 #include <stdio.h>
 /*
   * https://github.com/hello-smile6/custom-c-utils/runs/6958933775?check_suite_focus=true#step:3:13
@@ -49,4 +50,5 @@ int main() {
   printf("mkfifo() is unsupported on Windows, exiting with status 0 anyway (to avoid failing builds).");
   exit(0);
 }
+
 #endif
