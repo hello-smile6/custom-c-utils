@@ -1,3 +1,4 @@
+#ifndef __MINGW32__
 #include <stdio.h>
 #include "sysexits-polyfill.h"
 #include <stdlib.h>
@@ -27,3 +28,11 @@ int main ( int argc, char *argv[] )
       }
     }
     }
+#endif
+#ifdef __MINGW32__
+#include <stdio.h>
+int main() {
+  printf("mkfifo() is unsupported on Windows.");
+  exit(1);
+}
+#endif
