@@ -7,7 +7,12 @@
 #include "signal-wrapper.h"
 #include <unistd.h>
 #include <sys/types.h>
+#ifndef __MINGW32__
 #include <sysexits.h>
+#endif
+#ifdef __MINGW32__
+#include "sysexits-win32.h"
+#endif
 #include <sys/signal.h>
 int main( int argc, char *argv[] ) {
   if(argc!=2) {
