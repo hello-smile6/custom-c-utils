@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/stat.h>
+#include <unistd.h>
 int main() {
   int fifoUnlink=unlink("test/test-fifo");
   if(fifoUnlink==0) {

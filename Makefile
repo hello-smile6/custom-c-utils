@@ -1,5 +1,5 @@
 utils = yes mkfifo kill
-CFLAGS = -Wall -ansi -g0 -Werror=int-conversion -Ofast -O3
+CFLAGS = -Wall -ansi -g3 -Werror=int-conversion -Og -Werror=all
 tests = mkfifo
 .PHONY: all yes clean mkfifo kill tests test/mkfifo
 all: $(utils) tests
@@ -24,7 +24,7 @@ out/mkfifo: mkfifo.c common.h | out
 
 kill: out/kill
 
-out/kill: kill.c common.h | out
+out/kill: kill.c common.h signal-wrapper.h | out
 	gcc $(CFLAGS) kill.c -o out/kill
 
 tests: | test test/out/$(tests)

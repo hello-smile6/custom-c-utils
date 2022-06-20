@@ -1,4 +1,4 @@
-run = "cowsay Configure me!"
+run = "make clean && make && cowsay Works! && exit ; cowsay Doesnt work"
 
 [nix]
 channel = "stable-21_11"
