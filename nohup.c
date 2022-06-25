@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 int main( int argc, char *argv[] ) {
+  #ifndef __MINGW32__
   if(argc == 2) {
     int forkResult;
     forkResult=fork();
@@ -22,4 +23,9 @@ int main( int argc, char *argv[] ) {
   else {
     exit(-1);
   }
+  #endif
+  #ifdef __MINGW32__
+  printf("Windows is not supported.\n\tIf you know how to make fork() work on Windows, open a pull request!\n");
+  exit(0);
+  #endif
 }
