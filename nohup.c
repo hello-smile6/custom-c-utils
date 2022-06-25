@@ -4,6 +4,9 @@
   */
 #include <stdlib.h>
 #include <unistd.h>
+#ifdef __MINGW32__
+#include <stdio.h>
+#endif
 int main( int argc, char *argv[] ) {
   #ifndef __MINGW32__
   if(argc == 2) {
